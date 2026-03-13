@@ -1,0 +1,438 @@
+<!--
+PALETTE: Vibrant Tech (Primary: #4338ca, Secondary: #ec4899, Accent: #0ea5e9, Background: #f8fafc)
+CONFIRMATION: NEITHER Mermaid JS NOR SVG were used anywhere in this output.
+PLAN SUMMARY:
+1. Introduction: Hook the user on the importance of digital literacy.
+2. Hardware: Compare RAM vs Persistent Storage (Speed vs Capacity).
+3. Software Ecosystem: Detail OS functions and represent directory structures using CSS/HTML.
+4. Connectivity & Web: Break down networks (LAN/WAN/Internet), distinguish browsers vs engines, and analyze a URL visually.
+5. Digital Security: Visualize the pillars of secure navigation (HTTPS, cookies, passwords).
+6. Productivity Tools: Compare Word Processors vs Plain Text Editors.
+CHART CHOICES:
+- Data Point: Hardware Specs -> Goal: Compare -> Visualization: Bar Chart -> Justification: Best for comparing two distinct metrics (speed vs capacity) across different hardware components. (NO SVG)
+- Data Point: Network Scope -> Goal: Organize/Compare -> Visualization: Doughnut Chart -> Justification: Conceptually illustrates the relative scale of different network environments. (NO SVG)
+- Data Point: Security Pillars -> Goal: Relationships -> Visualization: Radar Chart -> Justification: Effectively maps multi-dimensional aspects of security on a single plane. (NO SVG)
+- Data Point: Editor Features -> Goal: Compare -> Visualization: Horizontal Bar Chart -> Justification: Allows easy comparison of capabilities between two specific categories of text software. (NO SVG)
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Computación e Informática</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 350px; }
+        }
+        .tree-line {
+            border-left: 2px solid #cbd5e1;
+            margin-left: 0.75rem;
+            padding-left: 1rem;
+        }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-pink-500 selection:text-white">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-indigo-700 to-pink-500 gradient-text">Informatica101</h1>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-600">
+                <a href="#hardware" class="hover:text-indigo-600 transition-colors">Hardware</a>
+                <a href="#os" class="hover:text-pink-500 transition-colors">Sistema Operativo</a>
+                <a href="#web" class="hover:text-sky-500 transition-colors">Web y Redes</a>
+                <a href="#seguridad" class="hover:text-indigo-600 transition-colors">Seguridad</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+        <section class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
+                El ADN del Mundo Digital: <br>
+                <span class="bg-gradient-to-r from-indigo-600 to-sky-500 gradient-text">Fundamentos Esenciales</span>
+            </h2>
+            <p class="text-lg text-slate-600 leading-relaxed">
+                Comprender cómo interactúan el hardware, el software y las redes es fundamental en la era moderna. Esta infografía desglosa los conceptos críticos, desde la memoria de tu computadora hasta la arquitectura de internet, proporcionando una visión analítica y fácil de digerir.
+            </p>
+        </section>
+
+        <section id="hardware" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-100 h-full flex flex-col justify-center">
+                <div class="text-indigo-600 text-4xl mb-4">🖥️</div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Arquitectura: Memoria vs. Almacenamiento</h3>
+                <p class="text-slate-600 mb-4">
+                    La arquitectura de computadoras dicta cómo se procesa y guarda la información. Un concepto crucial es la diferencia entre <strong>Memoria RAM</strong> (volátil, ultrarrápida, uso a corto plazo) y el <strong>Almacenamiento Persistente</strong> (Discos Duros/SSD: no volátil, más lento, uso a largo plazo).
+                </p>
+                <p class="text-slate-600">
+                    El gráfico adyacente ilustra este compromiso técnico (trade-off): mientras el almacenamiento ofrece capacidad masiva, la RAM sacrifica espacio por velocidad crítica de acceso al procesador.
+                </p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-100 flex flex-col justify-center items-center">
+                <h4 class="text-lg font-bold text-center mb-4 text-slate-700">Índice Comparativo: Velocidad vs Capacidad</h4>
+                <div class="chart-container">
+                    <canvas id="hardwareChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="os" class="bg-indigo-700 text-white rounded-3xl shadow-2xl p-8 md:p-12">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <div class="text-pink-400 text-4xl mb-4">⚙️</div>
+                <h3 class="text-3xl font-bold mb-4">El Sistema Operativo y su Ecosistema</h3>
+                <p class="text-indigo-100">
+                    El Sistema Operativo (SO) es el gestor central. Traduce las acciones del usuario en código de máquina, administra los recursos del hardware y proporciona el "Escritorio" (interfaz gráfica) y la estructura jerárquica de archivos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-indigo-800/50 p-6 rounded-xl border border-indigo-600">
+                    <h4 class="text-xl font-bold text-pink-300 mb-4">Funciones Core del SO</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="mr-3 text-sky-400 font-bold">1.</span>
+                            <span><strong>Gestión de Procesos:</strong> Asignación de tiempo de CPU a cada aplicación.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-sky-400 font-bold">2.</span>
+                            <span><strong>Gestión de Memoria:</strong> Controlar qué fragmentos de RAM usa cada programa.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-sky-400 font-bold">3.</span>
+                            <span><strong>Gestión de Archivos:</strong> Estructurar y recuperar datos del disco.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-sky-400 font-bold">4.</span>
+                            <span><strong>Interfaz de Usuario:</strong> Proporcionar el entorno visual (Escritorio).</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white text-slate-800 p-6 rounded-xl shadow-lg">
+                    <h4 class="text-xl font-bold text-indigo-700 mb-4">Estructura Jerárquica de Directorios</h4>
+                    <div class="font-mono text-sm">
+                        <div class="font-bold flex items-center">💽 C:\ (Directorio Raíz)</div>
+                        <div class="tree-line mt-2">
+                            <div class="flex items-center mb-2">📁 Usuarios</div>
+                            <div class="tree-line">
+                                <div class="flex items-center mb-2 text-indigo-700 font-semibold">📁 JuanPerez</div>
+                                <div class="tree-line">
+                                    <div class="flex items-center mb-1">🖥️ Escritorio</div>
+                                    <div class="flex items-center mb-1">📄 reporte_final.docx</div>
+                                    <div class="flex items-center mb-1">🖼️ foto_perfil.png</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-2">📁 Archivos de Programa</div>
+                            <div class="tree-line">
+                                <div class="flex items-center">📁 Navegador Web</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="web" class="space-y-8">
+            <div class="text-center max-w-3xl mx-auto">
+                <h3 class="text-3xl font-bold text-slate-900 mb-4">Conectividad y la Web</h3>
+                <p class="text-slate-600">
+                    Navegar por la información requiere entender la infraestructura subyacente (redes) y las herramientas de software (navegadores vs. motores de búsqueda) que interpretan y localizan recursos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                <div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-100 flex flex-col">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2">Navegador vs Motor de Búsqueda</h4>
+                    <p class="text-sm text-slate-500 mb-6">Confusión común clarificada</p>
+                    
+                    <div class="space-y-4 flex-grow">
+                        <div class="p-4 bg-sky-50 rounded-lg border border-sky-100">
+                            <div class="flex items-center mb-2">
+                                <span class="text-2xl mr-2">🧭</span>
+                                <h5 class="font-bold text-sky-800">Navegador Web (Browser)</h5>
+                            </div>
+                            <p class="text-sm text-slate-700">El <strong>software instalado</strong> en tu dispositivo (ej. Chrome, Firefox). Renderiza el código HTML/CSS para mostrar páginas web.</p>
+                        </div>
+                        <div class="p-4 bg-pink-50 rounded-lg border border-pink-100">
+                            <div class="flex items-center mb-2">
+                                <span class="text-2xl mr-2">🔍</span>
+                                <h5 class="font-bold text-pink-800">Motor de Búsqueda (Search Engine)</h5>
+                            </div>
+                            <p class="text-sm text-slate-700">Un <strong>sitio web especializado</strong> (ej. Google, Bing) que indexa internet y te ayuda a encontrar URLs basadas en palabras clave.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-100">
+                    <h4 class="text-xl font-bold text-slate-800 mb-4 text-center">Escala de Redes</h4>
+                    <div class="chart-container">
+                        <canvas id="networkChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 text-white rounded-2xl p-8 shadow-xl">
+                <h4 class="text-xl font-bold mb-6 text-center text-sky-400">Anatomía de una URL</h4>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-2 font-mono text-sm md:text-base break-all md:break-normal">
+                    <div class="bg-pink-600 px-4 py-2 rounded shadow text-center w-full md:w-auto">
+                        <span class="block text-xs text-pink-200 uppercase tracking-wider mb-1">Protocolo Seguro</span>
+                        <strong>https://</strong>
+                    </div>
+                    <div class="bg-indigo-600 px-4 py-2 rounded shadow text-center w-full md:w-auto">
+                        <span class="block text-xs text-indigo-200 uppercase tracking-wider mb-1">Subdominio</span>
+                        <strong>www.</strong>
+                    </div>
+                    <div class="bg-sky-600 px-4 py-2 rounded shadow text-center w-full md:w-auto">
+                        <span class="block text-xs text-sky-200 uppercase tracking-wider mb-1">Dominio Principal</span>
+                        <strong>ejemplo.com</strong>
+                    </div>
+                    <div class="bg-slate-700 px-4 py-2 rounded shadow text-center w-full md:w-auto">
+                        <span class="block text-xs text-slate-400 uppercase tracking-wider mb-1">Ruta / Directorio</span>
+                        <strong>/cursos/intro.html</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="seguridad" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-100 order-2 md:order-1">
+                <h4 class="text-xl font-bold text-center mb-4 text-slate-700">Pilares de la Navegación Segura</h4>
+                <div class="chart-container">
+                    <canvas id="securityChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-100 h-full flex flex-col justify-center order-1 md:order-2">
+                <div class="text-pink-500 text-4xl mb-4">🔒</div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Seguridad en la Navegación</h3>
+                <p class="text-slate-600 mb-4">
+                    La seguridad digital no es un solo protocolo, sino una postura multifacética. Los tres componentes más críticos para un usuario cotidiano son:
+                </p>
+                <ul class="space-y-3 text-slate-700">
+                    <li><strong class="text-indigo-600">HTTPS:</strong> Cifra la información (como tarjetas de crédito) entre el navegador y el servidor para que no pueda ser interceptada.</li>
+                    <li><strong class="text-indigo-600">Contraseñas:</strong> La primera línea de defensa. Deben ser largas, únicas y preferiblemente gestionadas por un software específico.</li>
+                    <li><strong class="text-indigo-600">Cookies:</strong> Pequeños archivos de texto. Algunas son vitales (mantener sesión iniciada), otras rastrean el comportamiento. Gestionarlas protege la privacidad.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+            <div class="p-8 md:p-12 text-center bg-slate-50 border-b border-slate-200">
+                <div class="text-indigo-600 text-4xl mb-4">📝</div>
+                <h3 class="text-3xl font-bold text-slate-900 mb-4">Herramientas de Productividad</h3>
+                <p class="text-slate-600 max-w-3xl mx-auto">
+                    La creación de documentos es una tarea fundamental. Entender la diferencia entre un Editor de Texto Plano y un Procesador de Texto define la eficiencia del trabajo informático. Un procesador moderno permite integrar de forma transparente herramientas visuales mediante acciones cotidianas como "copiar y pegar".
+                </p>
+            </div>
+            <div class="p-8 md:p-12">
+                <h4 class="text-xl font-bold text-center mb-8 text-slate-700">Comparativa de Capacidades</h4>
+                <div class="chart-container" style="max-width: 800px;">
+                    <canvas id="editorChart"></canvas>
+                </div>
+                
+                <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+                    <div class="p-4">
+                        <div class="text-3xl mb-2">✂️</div>
+                        <h5 class="font-bold text-slate-800">Copiar / Pegar</h5>
+                        <p class="text-sm text-slate-500 mt-2">La función más ubicua. Transfiere datos usando el portapapeles del Sistema Operativo.</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-3xl mb-2">🖼️</div>
+                        <h5 class="font-bold text-slate-800">Inserción Visual</h5>
+                        <p class="text-sm text-slate-500 mt-2">Permite incrustar imágenes en línea, rompiendo la estructura de solo texto.</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-3xl mb-2">📊</div>
+                        <h5 class="font-bold text-slate-800">Tablas Estructuradas</h5>
+                        <p class="text-sm text-slate-500 mt-2">Organiza datos relacionales visualmente sin necesidad de tabulaciones manuales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center mt-12">
+        <p class="text-sm">Diseñado para la comprensión clara de la arquitectura tecnológica moderna.</p>
+    </footer>
+
+    <script>
+        const wrapLabel = (label) => {
+            if (label.length <= 16) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > 16) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const globalTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const colors = {
+            indigo: 'rgba(67, 56, 202, 0.8)',
+            indigoBorder: 'rgba(67, 56, 202, 1)',
+            pink: 'rgba(236, 72, 153, 0.8)',
+            pinkBorder: 'rgba(236, 72, 153, 1)',
+            sky: 'rgba(14, 165, 233, 0.8)',
+            skyBorder: 'rgba(14, 165, 233, 1)',
+            slate: 'rgba(100, 116, 139, 0.5)',
+            slateBorder: 'rgba(100, 116, 139, 1)'
+        };
+
+        const ctxHardware = document.getElementById('hardwareChart').getContext('2d');
+        new Chart(ctxHardware, {
+            type: 'bar',
+            data: {
+                labels: ['Procesador (CPU)', 'Memoria RAM', 'Almacenamiento Persistente'].map(wrapLabel),
+                datasets: [
+                    {
+                        label: 'Velocidad de Acceso',
+                        data: [100, 75, 10],
+                        backgroundColor: colors.pink,
+                        borderColor: colors.pinkBorder,
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Capacidad Típica',
+                        data: [2, 15, 100],
+                        backgroundColor: colors.indigo,
+                        borderColor: colors.indigoBorder,
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { tooltip: globalTooltipConfig },
+                scales: {
+                    y: { beginAtZero: true, display: false },
+                    x: { ticks: { font: { family: 'Inter', size: 12 } } }
+                }
+            }
+        });
+
+        const ctxNetwork = document.getElementById('networkChart').getContext('2d');
+        new Chart(ctxNetwork, {
+            type: 'doughnut',
+            data: {
+                labels: ['LAN (Red Local)', 'WAN (Red Amplia)', 'Internet (Red Global)'].map(wrapLabel),
+                datasets: [{
+                    data: [15, 25, 60],
+                    backgroundColor: [colors.sky, colors.pink, colors.indigo],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: globalTooltipConfig,
+                    legend: { position: 'bottom', labels: { font: { family: 'Inter' } } }
+                },
+                cutout: '65%'
+            }
+        });
+
+        const ctxSecurity = document.getElementById('securityChart').getContext('2d');
+        new Chart(ctxSecurity, {
+            type: 'radar',
+            data: {
+                labels: ['Cifrado (HTTPS)', 'Gestión Contraseñas', 'Control Cookies', 'Consciencia Usuario', 'Actualizaciones SO'].map(wrapLabel),
+                datasets: [{
+                    label: 'Nivel de Importancia',
+                    data: [100, 95, 80, 100, 90],
+                    backgroundColor: 'rgba(67, 56, 202, 0.2)',
+                    borderColor: colors.indigoBorder,
+                    pointBackgroundColor: colors.pinkBorder,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { tooltip: globalTooltipConfig, legend: { display: false } },
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0,0,0,0.1)' },
+                        grid: { color: 'rgba(0,0,0,0.1)' },
+                        pointLabels: { font: { family: 'Inter', size: 11 } },
+                        ticks: { display: false }
+                    }
+                }
+            }
+        });
+
+        const ctxEditor = document.getElementById('editorChart').getContext('2d');
+        new Chart(ctxEditor, {
+            type: 'bar',
+            data: {
+                labels: ['Formato Texto Avanzado', 'Inserción Imágenes', 'Creación Tablas', 'Edición Código Fuente', 'Ligereza / Rapidez'].map(wrapLabel),
+                datasets: [
+                    {
+                        label: 'Procesador de Texto (ej. Word)',
+                        data: [100, 100, 100, 20, 40],
+                        backgroundColor: colors.sky,
+                        borderColor: colors.skyBorder,
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Editor Texto Plano (ej. Notepad)',
+                        data: [10, 0, 0, 100, 100],
+                        backgroundColor: colors.slate,
+                        borderColor: colors.slateBorder,
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { tooltip: globalTooltipConfig },
+                scales: {
+                    x: { beginAtZero: true, max: 100, display: false },
+                    y: { ticks: { font: { family: 'Inter', size: 12 } } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
