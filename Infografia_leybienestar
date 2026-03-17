@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ley de Bienestar Animal - Campeche</title>
+    
+    <!-- Palette: Vibrant Blue & Orange (Primary: #2563eb, Secondary: #f97316, Accent: #0ea5e9, Background: #f8fafc) -->
+    <!-- Plan Summary: Narrative flows from Core Principles (5 Freedoms) -> Authority Structure -> Regulatory Focus (Obligations vs Prohibitions) -> Sanctions Escalation. -->
+    <!-- Visualization Choices: 1. CSS Grid for Freedoms (Inform). 2. Flexbox Hierarchy for Authorities (Organize). 3. Doughnut Chart for Regulatory Focus (Compare). 4. Horizontal Bar Chart for Sanctions (Rankings). CONFIRMATION: NEITHER Mermaid JS NOR SVG were used anywhere in this output. -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+
+    <header class="bg-blue-600 text-white py-12 px-6 shadow-md mb-8">
+        <div class="max-w-5xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Ley de Protección y Bienestar Animal</h1>
+            <h2 class="text-xl md:text-2xl text-blue-100">Análisis Estructural y Disposiciones Clave del Estado de Campeche</h2>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 pb-16 space-y-12">
+
+        <section class="bg-white rounded-xl shadow-md p-8 border-t-4 border-orange-500">
+            <h3 class="text-2xl font-bold text-blue-800 mb-4">I. Objeto y Principios Rectores</h3>
+            <p class="text-slate-600 mb-8 leading-relaxed">
+                El Artículo 1 de la Ley establece el marco fundamental para la protección de la vida y el crecimiento natural de las especies. Este marco se sostiene sobre el reconocimiento de <strong>Las Cinco Libertades del Animal</strong>, criterios universales que garantizan un estándar mínimo de calidad de vida libre de sufrimiento inducido.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4">🥣</span>
+                    <h4 class="font-bold text-slate-800 mb-2">Libre de Hambre y Sed</h4>
+                    <p class="text-sm text-slate-500">Acceso a nutrición adecuada e hidratación constante para mantener pleno estado de salud.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4">🛡️</span>
+                    <h4 class="font-bold text-slate-800 mb-2">Libre de Miedos</h4>
+                    <p class="text-sm text-slate-500">Garantía de un entorno que evite el estrés, la angustia y el sufrimiento psicológico.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4">🌡️</span>
+                    <h4 class="font-bold text-slate-800 mb-2">Libre de Incomodidades</h4>
+                    <p class="text-sm text-slate-500">Provisión de un ambiente físico y térmico adecuado, incluyendo refugio y áreas de descanso.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4">⚕️</span>
+                    <h4 class="font-bold text-slate-800 mb-2">Libre de Dolor</h4>
+                    <p class="text-sm text-slate-500">Prevención, diagnóstico rápido y tratamiento de lesiones o enfermedades.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col items-center text-center md:col-span-2 lg:col-span-1">
+                    <span class="text-5xl mb-4">🐾</span>
+                    <h4 class="font-bold text-slate-800 mb-2">Libertad de Comportamiento</h4>
+                    <p class="text-sm text-slate-500">Espacio suficiente y compañía de animales de su especie para expresar pautas naturales.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-md p-8 border-t-4 border-sky-500">
+            <h3 class="text-2xl font-bold text-blue-800 mb-4">II. Distribución de Competencias</h3>
+            <p class="text-slate-600 mb-8 leading-relaxed">
+                La ejecución de la ley se distribuye en tres niveles de autoridad con funciones específicas y complementarias. Esta estructura garantiza que la formulación de políticas, la vigilancia punitiva y la atención operativa directa operen en conjunto.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex-1 bg-sky-50 p-6 rounded-lg border border-sky-200">
+                    <div class="text-3xl mb-2 text-sky-600">📜</div>
+                    <h4 class="font-bold text-sky-900 text-lg mb-2">SEMABICC (Art. 4)</h4>
+                    <p class="text-sm text-sky-800">Secretaría de Medio Ambiente. Encargada de formular la política estatal de bienestar animal y emitir autorizaciones para venta y adiestramiento.</p>
+                </div>
+                <div class="flex-1 bg-red-50 p-6 rounded-lg border border-red-200">
+                    <div class="text-3xl mb-2 text-red-600">⚖️</div>
+                    <h4 class="font-bold text-red-900 text-lg mb-2">PPA (Art. 5)</h4>
+                    <p class="text-sm text-red-800">Procuraduría de Protección al Ambiente. Ejecuta las funciones críticas de inspección, vigilancia y aplicación de sanciones ante infracciones.</p>
+                </div>
+                <div class="flex-1 bg-orange-50 p-6 rounded-lg border border-orange-200">
+                    <div class="text-3xl mb-2 text-orange-600">🏢</div>
+                    <h4 class="font-bold text-orange-900 text-lg mb-2">Municipios (Art. 6)</h4>
+                    <p class="text-sm text-orange-800">Operadores locales. Obligados a contar con Centros de Bienestar Animal, prevenir la sobrepoblación y resguardar ejemplares maltratados.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-md p-8 border-t-4 border-blue-600 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+                <h3 class="text-2xl font-bold text-blue-800 mb-4">III. Enfoque Normativo</h3>
+                <p class="text-slate-600 mb-4 leading-relaxed">
+                    El marco legal establece un equilibrio entre las responsabilidades activas de los tutores y las restricciones absolutas sobre prácticas perjudiciales. El siguiente gráfico ilustra la proporción de áreas temáticas clave analizadas en los artículos principales.
+                </p>
+                <ul class="space-y-3 text-sm text-slate-700">
+                    <li class="flex items-start">
+                        <span class="text-orange-500 font-bold mr-2">✓</span>
+                        <span><strong>Obligaciones (Arts. 8-13):</strong> Cuidados, responsabilidad civil, vacunación, identificación, esterilización obligatoria para venta y recolección de heces.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-red-500 font-bold mr-2">✗</span>
+                        <span><strong>Prohibiciones (Arts. 19-26):</strong> Causar muerte/mutilación, peleas (con excepciones reguladas), tortura, uso como premios/juguetes y venta en vía pública.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sky-500 font-bold mr-2">⚠</span>
+                        <span><strong>Transporte/Experimentos (Arts. 28-33):</strong> Restricciones a la vivisección comercial y normas estrictas contra la fatiga extrema en traslados.</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="enfoqueChart"></canvas>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-md p-8 border-t-4 border-red-500">
+            <h3 class="text-2xl font-bold text-blue-800 mb-4">IV. Escala de Sanciones y Severidad</h3>
+            <p class="text-slate-600 mb-8 leading-relaxed">
+                Los Artículos 68, 69 y 72 tipifican las infracciones (como abandono, tortura o privación de alimento) y establecen un régimen punitivo progresivo. Las multas monetarias oscilan entre <strong>35 y 350 UMA</strong>, con medidas administrativas severas para reincidentes o casos de crueldad extrema.
+            </p>
+            
+            <div class="chart-container">
+                <canvas id="sancionesChart"></canvas>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const chartFontFamily = "'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif";
+        const tooltipOptions = {
+            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+            titleFont: { family: chartFontFamily, size: 14 },
+            bodyFont: { family: chartFontFamily, size: 13 },
+            padding: 12,
+            cornerRadius: 8,
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const ctxEnfoque = document.getElementById('enfoqueChart').getContext('2d');
+        new Chart(ctxEnfoque, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    ['Obligaciones de', 'Propietarios'],
+                    ['Prohibiciones y', 'Crueldad'],
+                    ['Experimentación', 'y Transporte'],
+                    ['Infracciones y', 'Sanciones']
+                ],
+                datasets: [{
+                    data: [5, 4, 6, 3],
+                    backgroundColor: [
+                        '#f97316',
+                        '#ef4444',
+                        '#0ea5e9',
+                        '#2563eb'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '65%',
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            font: { family: chartFontFamily, size: 12 },
+                            color: '#475569'
+                        }
+                    },
+                    tooltip: tooltipOptions
+                }
+            }
+        });
+
+        const ctxSanciones = document.getElementById('sancionesChart').getContext('2d');
+        new Chart(ctxSanciones, {
+            type: 'bar',
+            data: {
+                labels: [
+                    ['Amonestación'],
+                    ['Multa de 35', 'a 350 UMA'],
+                    ['Suspensión o', 'revocación'],
+                    ['Clausura de', 'establecimientos'],
+                    ['Arresto hasta', '36 horas'],
+                    ['Decomiso de', 'ejemplares']
+                ],
+                datasets: [{
+                    label: 'Nivel de Severidad Punitiva',
+                    data: [1, 2, 3, 4, 5, 6],
+                    backgroundColor: '#2563eb',
+                    borderRadius: 4,
+                    barPercentage: 0.7
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 6,
+                        ticks: { display: false },
+                        grid: { display: false, drawBorder: false }
+                    },
+                    y: {
+                        ticks: {
+                            font: { family: chartFontFamily, size: 12 },
+                            color: '#1e293b'
+                        },
+                        grid: { color: '#f1f5f9' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipOptions
+                }
+            }
+        });
+    </script>
+</body>
+</html>
